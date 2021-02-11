@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My personal blog</title>
+
+    <link href="http://thetheme.io/thesaas/assets/css/page.min.css" rel="stylesheet">
+    <link href="http://thetheme.io/thesaas/assets/css/style.css">
+
+</head>
+<body style="background-color: black; color: white;">
+    {% block content %}
+    <p class="h1 text-center mt-6" style="color:ivory;">My Blog</p>
+    <div class="mt-6">
+        <div id="my_info" class="col-6 m-auto">
+            <p>
+            <img src="{% static 'images/my_main_photo.jpg' %}" alt="My photo" style="float:left; width:200px; height:220px; margin-right: 10px;">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </p>
+        </div>
+    </div>
+
+    <div id="sorting_block" class="text-center">
+        Sortuj według:
+        <a href="date_sorted_old">daty(starsze)</a> /
+        <a href="date_sorted_new">daty(nowsze)</a> /
+        <a href="name_sorted">nazwy</a> /
+        <a href="last_three">pokaż ostatnie 3</a>
+    </div>
+    {% endblock content %}
+
+    {% include "posts.html" %}
+
+
+            <div class="col-12 text-center mb-6">
+              <br>
+              {% now "Y" as current_year %}
+              {% if current_year != "2020" %}
+              <small>&copy; OurBlog 2020-{{ current_year}}, Wszystkie prawa zastrzeżone</small>
+              {% else %}
+              <small>&copy; OurBlog {{ current_year}}, Wszystkie prawa zastrzeżone</small>
+              {% endif %}
+            </div>
+
+</body>
+</html>

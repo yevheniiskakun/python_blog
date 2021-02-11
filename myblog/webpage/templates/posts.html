@@ -1,0 +1,21 @@
+
+
+<div class="col-8 m-auto">
+    {% if posts_result %}
+        <div id="posts_body" class="" >
+            {% for post in posts_result %}
+                <div style="border-style: dashed; border-color: #FFB454; border-width: 5px; border-radius: 5px; padding: 10px;" class="mt-6 mb-6">
+                    <p class="h3" style="color: ivory;">
+                    {{ post.title }}
+                    </p>
+                    <p class="text-center">
+                        {{ post.post }}
+                    </p>
+                    <p class="text-right" style="font-size: 12px;">
+                        {{ post.date }}
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
